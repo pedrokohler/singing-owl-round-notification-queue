@@ -1,0 +1,9 @@
+gcloud config set project song-ballot-dev
+gcloud functions deploy singing-owl-notification-queue \
+--region us-east1 \
+--trigger-topic singing-owl-notification-queue \
+--runtime nodejs14 \
+--env-vars-file env-dev.yml \
+--project song-ballot-dev \
+--max-instances 1 \
+--entry-point singingOwlNotificationQueue

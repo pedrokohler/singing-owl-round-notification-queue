@@ -29,7 +29,7 @@ class Main {
   get main() {
     return this.builder.pubsub
       .topic(this.entryPoint)
-      .onPublish(this.runService);
+      .onPublish(this.runService.bind(this));
   }
 
   async runService(message: Message) {
